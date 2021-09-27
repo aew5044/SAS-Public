@@ -85,3 +85,7 @@ Else Season = 'Summer';
 Drop Term;
 Rename Col1 = Term;
 Run;
+
+Proc Datasets lib=work;
+delete Terms_Transposed Terms;
+Run;

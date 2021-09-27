@@ -86,6 +86,6 @@ Drop Term;
 Rename Col1 = Term;
 Run;
 
-Proc Datasets lib=work;
+Proc Datasets lib=work Noprint;
 delete Terms_Transposed Terms;
 Run;

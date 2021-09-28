@@ -89,3 +89,29 @@ Run;
 Proc Datasets lib=work Noprint;
 delete Terms_Transposed Terms;
 Run;
+
+PROC SQL;
+Create Table Acad_year_fmt As
+Select Distinct "$AcadYear" as FMTName, Term as Start, 
+	Acad_year as Label
+From Acad_years;
+
+Create Table SOAcad_year_fmt As
+Select Distinct "$SOAcadYear" as FMTName, Term as Start, 
+	SO_Acad_year as Label
+From Acad_years;
+
+Create Table Season_fmt As
+Select Distinct "$Seasonz" as FMTName, Term as Start, 
+	Season as Label
+From Acad_years;
+
+Quit;
+
+Proc Format cntlin=Acad_year_fmt; Run;
+Proc Format cntlin=SOAcad_year_fmt; Run;
+Proc Format cntlin=Season_fmt; Run;
+
+Proc Datasets lib=work Noprint;
+delete Terms_Transposed Terms Season_fmt Acad_year_fmt Acad_year_fmt;
+Run;

@@ -1,4 +1,7 @@
 
+Options nonotes nosource;
+
+
 Data Terms;
 Array FA{41} $ FA2000-FA2040;
 Array SP{41} $ SP2000-SP2040;
@@ -13,21 +16,21 @@ Array SPCE{41} $ SPCE2000-SPCE2040;
 Array SUCE{41} $ SUCE2000-SUCE2040;
 
 Do i = 1 to 41;
-		FA{i} = CATS(PUT(1999 + i,$5.),"FA");
-		SP{i} = CATS(PUT(1999 + i,$5.),"SP");
-		SU{i} = CATS(PUT(1999 + i,$5.),"SU");
+		FA{i} = CATS(PUT(1999 + i,5.),"FA");
+		SP{i} = CATS(PUT(1999 + i,5.),"SP");
+		SU{i} = CATS(PUT(1999 + i,5.),"SU");
 	End;
 
 Do i = 1 to 41;
-		FAN{i} = CATS(PUT(1999 + i,$5.),"03");
-		SPN{i} = CATS(PUT(1999 + i,$5.),"01");
-		SUN{i} = CATS(PUT(1999 + i,$5.),"02");
+		FAN{i} = CATS(PUT(1999 + i,5.),"03");
+		SPN{i} = CATS(PUT(1999 + i,5.),"01");
+		SUN{i} = CATS(PUT(1999 + i,5.),"02");
 	End;
 
 Do i = 1 to 41;
-		FACE{i} = CATS(PUT(1999 + i,$5.),"CE3");
-		SPCE{i} = CATS(PUT(1999 + i,$5.),"CE1");
-		SUCE{i} = CATS(PUT(1999 + i,$5.),"CE2");
+		FACE{i} = CATS(PUT(1999 + i,5.),"CE3");
+		SPCE{i} = CATS(PUT(1999 + i,5.),"CE1");
+		SUCE{i} = CATS(PUT(1999 + i,5.),"CE2");
 	End;
 
 Run;
@@ -109,5 +112,19 @@ Proc Format cntlin=SOAcad_year_fmt; Run;
 Proc Format cntlin=Season_fmt; Run;
 
 Proc Datasets lib=work Noprint;
-delete Terms_Transposed Terms Season_fmt Acad_year_fmt Acad_year_fmt SOAcad_year_fmt;
+delete Terms_Transposed Terms Season_fmt Acad_year_fmt SOAcad_year_fmt;
 Run;
+
+%PUT You have successfully created a SAS data set called Acad_year. It can be used as a crosswalk table when grouping by academic year, 
+	system office year, or season.;
+%PUT Academic year is FA, SP, then SU in that order, while SO reporting year is SU, FA, and SP in that order;
+%PUT;
+%PUT We also created three temporary SAS formats.;
+%PUT They are called "$Acadyear.", "$SOAcadyear.", and "$Seasonz.";
+%PUT Below is an example Proc Report using the SAS format.;
+%PUT;
+%PUT proc Report Data=trn.all_master;;
+%PUT Col Instterm N;;
+%PUT Define Instterm / Group F=$AcadYear. "Academic Year";;
+%PUT Define N / "Registrations" F=Comma.;; 
+%PUT Run;;

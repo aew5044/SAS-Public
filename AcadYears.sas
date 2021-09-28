@@ -86,10 +86,6 @@ Drop Term;
 Rename Col1 = Term;
 Run;
 
-Proc Datasets lib=work Noprint;
-delete Terms_Transposed Terms;
-Run;
-
 PROC SQL;
 Create Table Acad_year_fmt As
 Select Distinct "$AcadYear" as FMTName, Term as Start, 
@@ -113,5 +109,5 @@ Proc Format cntlin=SOAcad_year_fmt; Run;
 Proc Format cntlin=Season_fmt; Run;
 
 Proc Datasets lib=work Noprint;
-delete Terms_Transposed Terms Season_fmt Acad_year_fmt Acad_year_fmt;
+delete Terms_Transposed Terms Season_fmt Acad_year_fmt Acad_year_fmt SOAcad_year_fmt;
 Run;

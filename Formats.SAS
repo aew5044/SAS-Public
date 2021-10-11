@@ -82,4 +82,10 @@ VALUE $EduLevel
          		"16" = "Bachelor’s Degree"
          		"17" = "Master’s Degree or Higher"
          		"--" = "GED";
+			
+value Wilson
+			64, 33, 74, 40, 96, 51 = "Adjacent"
+	 		98 = 'Wilson'
+	 		. = 'Missing'
+			other = "Other";
 RUN; 

@@ -1,6 +1,6 @@
 PROC FORMAT 
 	LIB=work ; 
-		VALUE $AcadYear
+VALUE $AcadYear
 			"2005FA","2006SP","2006SU" = "2005-06"
 			"2006FA","2007SP","2007SU" = "2006-07"
 			"2007FA","2008SP","2008SU" = "2007-08"
@@ -27,7 +27,7 @@ PROC FORMAT
 			"2028FA","2029SP","2029SU" = "2028-29"
 			"2029FA","2030SP","2030SU" = "2029-30"
 			"2030FA","2031SP","2031SU" = "2030-31";
-		VALUE $SOAcadYear
+VALUE $SOAcadYear
 			"2005SU","2005FA","2006SP" = "2005-06"
 			"2006SU","2006FA","2007SP" = "2006-07"
 			"2007SU","2007FA","2008SP" = "2007-08"
@@ -54,9 +54,12 @@ PROC FORMAT
 			"2028SU","2028FA","2029SP" = "2028-29"
 			"2029SU","2029FA","2030SP" = "2029-30"
 			"2030SU","2030FA","2031SP" = "2030-31";
- VALUE $Enroll
+VALUE $Enroll
 			'FT' = "Full-Time"
 			'PT' = "Part-Time";
+VALUE $Gener
+			'F','f' = "Female"
+			'M','m' = "Male";
 VALUE IPEDSage
 			Low-<18 = "Under 18"
 			18-<20 = "18-19"
@@ -70,13 +73,13 @@ VALUE IPEDSage
 			65-High = "65 and Over"
 			;
 VALUE $EduLevel
-         			"0" = "Never Attended"
-					"10" "8" "9" "11"	= "Less Than HS"
-	      			"12" = "Completed High School"
-         			"13" = "Adult High School"
-         			"14" = "One Year Vocational Diploma"
-         			"15" = "Associate’s Degree"
-         			"16" = "Bachelor’s Degree"
-         			"17" = "Master’s Degree or Higher"
-         			"--" = "GED";
+         		"0" = "Never Attended"
+			"10" "8" "9" "11"= "Less Than HS"
+	      		"12" = "Completed High School"
+         		"13" = "Adult High School"
+         		"14" = "One Year Vocational Diploma"
+         		"15" = "Associate’s Degree"
+         		"16" = "Bachelor’s Degree"
+         		"17" = "Master’s Degree or Higher"
+         		"--" = "GED";
 RUN; 

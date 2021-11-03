@@ -1,6 +1,7 @@
 
 Options nonotes nosource;
 
+*Another great option in SAS;
 
 Data Terms;
 Array FA{41} $ FA2000-FA2040;

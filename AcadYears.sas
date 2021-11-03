@@ -1,6 +1,6 @@
 
 Options nonotes nosource;
-
+*Here are a few notes from Andrew's Git location;
 
 Data Terms;
 Array FA{41} $ FA2000-FA2040;

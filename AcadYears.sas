@@ -2,6 +2,7 @@
 Options nonotes nosource;
 
 *Another great option in SAS;
+*This is a way to put everything together on one spot;
 
 Data Terms;
 Array FA{41} $ FA2000-FA2040;
